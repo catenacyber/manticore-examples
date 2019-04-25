@@ -59,4 +59,4 @@ def hook(state):
     m.terminate()
 
 m.should_profile = True
-m.run(procs=10)
+m.run()

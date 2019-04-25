@@ -45,4 +45,4 @@ def hook(state):
     m.terminate()
 
 m.verbosity =1
-m.run(procs=10)
+m.run()

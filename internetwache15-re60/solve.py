@@ -53,4 +53,4 @@ def success(state):
 
 
 print("Start")
-m.run(procs=10)
+m.run()

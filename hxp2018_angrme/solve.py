@@ -52,4 +52,4 @@ def success(state):
         m.terminate()
 
 
-m.run(procs=10)
+m.run()
