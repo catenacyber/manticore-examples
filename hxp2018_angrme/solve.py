@@ -4,7 +4,7 @@
 from manticore.native import Manticore
 from manticore.core.smtlib import operators
 
-m = Manticore('./angrme')
+m = Manticore('./angrme', env={"LD_LIBRARY_PATH": "/usr/local/lib/linux/"})
 
 max_length = 40  # maximum flag length (rough guess-timate)
 m.verbosity(1)

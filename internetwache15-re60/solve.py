@@ -1,6 +1,6 @@
 from manticore.native import Manticore
 
-m = Manticore('filechecker')
+m = Manticore('filechecker', env={"LD_LIBRARY_PATH": "/usr/local/lib/linux/"})
 with m.locked_context() as context:
     context['count'] = 0
 

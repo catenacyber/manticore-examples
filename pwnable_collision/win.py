@@ -16,7 +16,7 @@ from manticore.core.smtlib import operators
 # initialize Manticore object with symbolic input in
 # argv[1]. We can eventually solve for this through
 # state.input_symbol
-m = Manticore('./col', ['+' * 20])
+m = Manticore('./col', ['+' * 20], env={"LD_LIBRARY_PATH": "/usr/local/lib/linux/"})
 m.context['solution'] = None
 m.context['argv1'] = None
 

@@ -4,7 +4,7 @@
 from manticore.native import Manticore
 
 
-m = Manticore('ais3_crackme', ['a'*30])
+m = Manticore('ais3_crackme', ['a'*30], env={"LD_LIBRARY_PATH": "/usr/local/lib/linux/"})
 
 buffer_addr=0
 num_bytes=30
