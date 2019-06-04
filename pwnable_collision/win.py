@@ -62,7 +62,7 @@ def success_state(state):
     state.input_symbols to find the label """
     with m.locked_context() as context:
         context['solution'] = state.solve_one(context['argv1'], 20)
-    m.terminate()
+    m.kill()
 
 
 # run Manticore, and print solution

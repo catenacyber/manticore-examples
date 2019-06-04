@@ -45,7 +45,7 @@ def success(state):
     with m.locked_context() as context:
         print("[+] found success path")
         print("[+] password: {}".format(context['password']))
-        m.terminate()
+        m.kill()
 
 
 @m.hook(0x8048BF6)

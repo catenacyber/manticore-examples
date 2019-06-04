@@ -56,7 +56,7 @@ def hook(state):
     print(res) # CTF{0The1Quick2Brown3Fox4Jumped5Over6The7Lazy8Fox9}
 
     # We found the flag, no need to continue execution
-    m.terminate()
+    m.kill()
 
 m.should_profile = True
 m.run()

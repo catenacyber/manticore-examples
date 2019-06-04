@@ -49,7 +49,7 @@ def success(state):
             ans += chr(state.solve_one(char))
 
     print(ans)
-    m.terminate()
+    m.kill()
 
 
 print("Start")

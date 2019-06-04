@@ -18,13 +18,13 @@ def hook2(state):
 @m.hook(0x400a40)
 def hookf(state):
     print("Failed")
-    m.terminate()
+    m.kill()
 
 @m.hook(0x400a6c)
 def hooks(state):
     print("Success!")
     print(m.context['flag'])
-    m.terminate()
+    m.kill()
 
 m.concrete_data = "12345678" * 2 + "\n"
 m.run()
@@ -41,6 +41,6 @@ def hook(state):
         print(solved)
         m2.context['flag'] += chr(solved)
     print(m2.context['flag'])
-    m2.terminate()
+    m2.kill()
 
 m2.run()

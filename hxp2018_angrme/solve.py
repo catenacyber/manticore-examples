@@ -49,7 +49,7 @@ def success(state):
         address = context['input_address']
         flag = ''.join(map(chr, state.solve_buffer(address, max_length)))
         print("[+] flag: " + flag)
-        m.terminate()
+        m.kill()
 
 
 m.run()

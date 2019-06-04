@@ -27,7 +27,8 @@ def hook(state):
     state.constrain(solution[3] == ord('3'))
     state.constrain(solution[4] == ord('{'))
     buffer_addr=state.cpu.read_int(state.cpu.RAX)
-    m.context[1] = buffer_addr
+    with m.locked_context('feature_list', list) as feature_list:
+        feature_list.append(buffer_addr)
     print ("buffer addr : %08x " %(buffer_addr))
     state.cpu.write_bytes(buffer_addr, solution)
 
@@ -38,11 +39,12 @@ def hook(state):
 
 @m.hook(0x400602)
 def hook(state):
+    with m.locked_context('feature_list', list) as feature_list:
+        buffer_addr = feature_list.pop()
     print("it is a win path")
-    buffer_addr = m.context[1]
     res = ''.join(map(chr, state.solve_buffer(buffer_addr,num_bytes)))
     print("flag is : %s"%(res))
-    m.terminate()
+    m.kill()
 
 m.verbosity =1
 m.run()

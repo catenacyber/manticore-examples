@@ -65,7 +65,7 @@ def success(state):
         print("[+] found success path")
         print("[+] username: " + context['username'])
         print("[+] serial #: {}".format(context['serial']))
-        m.terminate()
+        m.kill()
 
 
 m.run(procs=10)

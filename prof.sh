@@ -1,7 +1,7 @@
 #/bin/sh
-cat prof.txt | awk '{print "cd "$1"; python3 -m cProfile " $2 ">cprof.txt; cd .."}' | sh
-find . -name "cprof.txt" | while read i; do grep -a "ncalls  tottime" $i -A100000 > "$i"2 ; done
-find . -name "cprof.txt" | while read i; do mv "$i"2 "$i"; done
+cat prof.txt | awk '{print "cd "$1"; python3 -m cProfile -o cprof.txt " $2 "; cd .."}' | sh
+#find . -name "cprof.txt" | while read i; do grep -a "ncalls  tottime" $i -A100000 > "$i"2 ; done
+#find . -name "cprof.txt" | while read i; do mv "$i"2 "$i"; done
 
 
 #multiple-styles win.py ok added
