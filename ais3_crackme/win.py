@@ -2,7 +2,10 @@
 # -*- coding: utf-8 --
 
 from manticore.native import Manticore
+import datetime
+import yappi
 
+#yappi.start()
 
 m = Manticore('ais3_crackme', ['a'*30], env={"LD_LIBRARY_PATH": "/usr/local/lib/linux/"})
 
@@ -48,3 +51,8 @@ def hook(state):
 
 m.verbosity =1
 m.run()
+
+func_stats = yappi.get_func_stats()
+func_stats.save('callgrind.out', 'CALLGRIND')
+yappi.stop()
+yappi.clear_stats()
