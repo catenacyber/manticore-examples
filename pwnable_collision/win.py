@@ -17,8 +17,9 @@ from manticore.core.smtlib import operators
 # argv[1]. We can eventually solve for this through
 # state.input_symbol
 m = Manticore('./col', ['+' * 20], env={"LD_LIBRARY_PATH": "/usr/local/lib/linux/"})
-m.context['solution'] = None
-m.context['argv1'] = None
+with m.locked_context() as context:
+    context['solution'] = None
+    context['argv1'] = None
 
 
 @m.init
@@ -69,4 +70,5 @@ def success_state(state):
 m.verbosity(2)
 m.run()
 
-print("EDGE CASE: ", m.context['solution'])
+with m.locked_context() as context:
+    print("EDGE CASE: ", context['solution'])
